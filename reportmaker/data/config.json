@@ -1,0 +1,23 @@
+{
+  "environment": "",
+  "locale_domain": "report",
+  "language": "en",
+  "locale_dir": "~/.report/locale",
+  "log_file": "~/.report/report.log",
+  "log_format": "%(levelname)-10s|%(asctime)s| %(name)s --- %(message)s (%(filename)s:%(lineno)d)",
+  "default_styles": {
+    "default": {
+      "type": "Paragraph",
+      "parent_stylesheet": "sample",
+      "parent_name": "Normal",
+      "alignment": "left",
+      "fontName": "Courier",
+      "fontSize": "11"
+    },
+    "default_center": {
+      "type": "Paragraph",
+      "parent_name": "default",
+      "alignment": "center"
+    }
+  }
+}

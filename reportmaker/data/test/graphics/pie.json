@@ -1,0 +1,46 @@
+{
+  "document": {
+    "format": "pdf",
+    "layout": [
+      {
+        "type": "Pie",
+        "drawing": {
+          "width": 400,
+          "height": 400
+        },
+        "x": 100,
+        "y": 100,
+        "width": 200,
+        "height": 200,
+        "data": [10, 20, 30, 40, 50, 60],
+        "labels": ["a", "b", "c", "d", "e", "f"],
+        "style": {
+          "strokeWidth": 0.5,
+          "startAngle": 90,
+          "direction": "anticlockwise",
+          "sideLabels": 1,
+          "sideLabelsOffset": 0.1,
+          "simpleLabels": 1,
+          "strokeColor": "None",
+          "popout": 0,
+          "fontName": "Courier",
+          "fontColor": "blue",
+          "label_pointer_strokeColor": "green"
+        },
+        "slices": [
+          {
+            "type": "Slice",
+            "number": 3,
+            "popout": 10,
+            "strokeWidth": 2,
+            "strokeDashArray": [2,2],
+            "labelRadius": 1.75,
+            "label_angle": 0,
+            "fontColor": "red"
+          }
+        ]
+
+      }
+    ]
+  }
+}

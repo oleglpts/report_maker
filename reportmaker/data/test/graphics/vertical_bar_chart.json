@@ -1,0 +1,66 @@
+{
+  "document": {
+    "format": "pdf",
+    "layout": [
+      {
+        "type": "Vertical_Bar_Chart",
+        "drawing": {
+          "width": 400,
+          "height": 200
+        },
+        "categoryAxis": {
+          "style": "parallel",
+          "categoryNames": ["Jan-99", "Feb-99", "Mar-99", "Apr-99", "May-99", "Jun-99", "Jul-99", "Aug-99"]
+        },
+        "categoryAxisLabels": [
+          {"dx": 8, "dy": -2, "boxAnchor": "ne", "textAnchor": "middle", "fontSize": 10, "angle": 30},
+          {"dx": 8, "dy": -2, "boxAnchor": "ne", "textAnchor": "middle", "fontSize": 10, "angle": 30},
+          {"dx": 8, "dy": -2, "boxAnchor": "ne", "textAnchor": "middle", "fontSize": 10, "angle": 30},
+          {"dx": 8, "dy": -2, "boxAnchor": "ne", "textAnchor": "middle", "fontSize": 10, "angle": 30},
+          {"dx": 8, "dy": -2, "boxAnchor": "ne", "textAnchor": "middle", "fontSize": 10, "angle": 30},
+          {"dx": 8, "dy": -2, "boxAnchor": "ne", "textAnchor": "middle", "fontSize": 10, "angle": 30},
+          {"dx": 8, "dy": -2, "boxAnchor": "ne", "textAnchor": "middle", "fontSize": 10, "angle": 30},
+          {"dx": 8, "dy": -2, "boxAnchor": "ne", "textAnchor": "middle", "fontSize": 10, "angle": 30}
+        ],
+        "useAbsolute": 0,
+        "barWidth": 10,
+        "groupSpacing": 5,
+        "barSpacing": 0,
+        "barLabelFormat": "%s",
+        "barLabels": [
+          [
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "pink", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "pink", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "pink", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "pink", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "pink", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "pink", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "pink", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "pink", "width": 10}
+          ],
+          [
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "gray", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "gray", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "gray", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "gray", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "gray", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "gray", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "gray", "width": 10},
+            {"fontSize": 8, "angle": 0, "boxStrokeColor": "blue", "boxFillColor": "gray", "width": 10}
+          ]
+        ],
+        "valueAxis": {"valueMin": 0, "valueMax": 50, "valueStep": 10},
+        "strokeColor": "white",
+        "fillColor": "white",
+        "x": 50,
+        "y": 50,
+        "width": 300,
+        "height": 125,
+        "data": [
+          [13, 5, 20, 22, 37, 45, 19, 4],
+          [14, 6, 21, 23, 38, 46, 20, 5]
+        ]
+      }
+    ]
+  }
+}

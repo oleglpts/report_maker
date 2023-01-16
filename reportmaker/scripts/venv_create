@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# example ./venv_create report
+
+PROGRAM=$1
+
+mkdir ~/.$PROGRAM > /dev/null 2>&1
+rm -rf ~/.$PROGRAM/venv
+mkdir ~/.$PROGRAM/venv
+virtualenv --python=python`python3 --version | sed 's/Python //' | sed 's/\./ /g' | awk '{print $1 "." $2}'` ~/.$PROGRAM/venv
+source ~/.$PROGRAM/venv/bin/activate
+echo -ne "\n"
+pip install -U -r ../../requirements.txt
+deactivate
