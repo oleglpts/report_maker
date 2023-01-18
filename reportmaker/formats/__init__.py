@@ -148,35 +148,9 @@ class Document(ABC):
         raise ReportError(f"Method 'create_paragraph_style' for class {self.__name__} not implemented")
 
     @abstractmethod
-    def create_table_style(self, style: dict, name: str) -> Any:
-        """
-        Create table style
-
-        :param style: style descriptor
-        :type style: dict
-        :param name: style name
-        :type name: str
-        :return: table style object
-        :rtype: Any
-        """
-        raise ReportError(f"Method 'create_table_style' for class {self.__name__} not implemented")
-
-    @abstractmethod
-    def create_paragraph(self, paragraph: dict) -> Any:
-        """
-        Create paragraph
-
-        :param paragraph: paragraph descriptor
-        :type paragraph: dict
-        :return: paragraph object
-        :rtype: Any
-        """
-        raise ReportError(f"Method 'create_paragraph' for class {self.__name__} not implemented")
-
-    @abstractmethod
     def create_table(self, table: dict) -> Any:
         """
-        Create paragraph
+        Create table
 
         :param table: table descriptor
         :type table: dict
@@ -196,90 +170,6 @@ class Document(ABC):
         :rtype: Any
         """
         raise ReportError(f"Method 'create_image' for class {self.__name__} not implemented")
-
-    @abstractmethod
-    def create_pie(self, pie: dict) -> Any:
-        """
-        Create pie chart
-
-        :param pie: pie parameters
-        :type pie: dict
-        :return: pie object
-        :rtype: Any
-        """
-        raise ReportError(f"Method 'create_pie' for class {self.__name__} not implemented")
-
-    @abstractmethod
-    def create_slice(self, sl: dict) -> dict:
-        """
-        Create mapped slice attributes for pie chart
-
-        :param sl: slice attributes
-        :type sl: dict
-        :return: mapped slice attributes
-        :rtype: dict
-        """
-        raise ReportError(f"Method 'create_slice' for class {self.__name__} not implemented")
-
-    @abstractmethod
-    def create_line(self, line: dict) -> dict:
-        """
-        Create mapped line attributes for line chart
-
-        :param line: line attributes
-        :type line: dict
-        :return: mapped line attributes
-        :rtype: dict
-        """
-        raise ReportError(f"Method 'create_line' for class {self.__name__} not implemented")
-
-    @abstractmethod
-    def create_horizontal_line_chart(self, line_chart: dict) -> Any:
-        """
-        Create horizontal line chart
-
-        :param line_chart: horizontal_line_chart parameters
-        :type line_chart: dict
-        :return: rendered drawing
-        :rtype: Any
-        """
-        raise ReportError(f"Method 'create_horizontal_line_chart' for class {self.__name__} not implemented")
-
-    @abstractmethod
-    def create_line_plot(self, line_plot: dict) -> Any:
-        """
-        Create line plot
-
-        :param line_plot: horizontal_line_chart parameters
-        :type line_plot: dict
-        :return: rendered drawing
-        :rtype: Any
-        """
-        raise ReportError(f"Method 'create_line_plot' for class {self.__name__} not implemented")
-
-    @abstractmethod
-    def create_vertical_bar_chart(self, bar_chart: dict) -> Any:
-        """
-        Create vertical bar chart
-
-        :param bar_chart: vertical bar chart parameters
-        :type bar_chart: dict
-        :return: rendered drawing
-        :rtype: Any
-        """
-        raise ReportError(f"Method 'create_vertical_bar_chart' for class {self.__name__} not implemented")
-
-    @abstractmethod
-    def create_spacer(self, spacer: dict) -> Any:
-        """
-        Create spacer
-
-        :param spacer: spacer parameters
-        :type spacer: dict
-        :return: rendered drawing
-        :rtype: Any
-        """
-        raise ReportError(f"Method 'create_spacer' for class {self.__name__} not implemented")
 
     @abstractmethod
     def _create_document(self):

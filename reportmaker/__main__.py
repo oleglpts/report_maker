@@ -20,7 +20,12 @@ def main():
         with open(cmd_args.input) as descriptor_file:
 
             # Load descriptor
-            descriptor = json.load(descriptor_file)
+            descriptor_string = descriptor_file.read()
+            for parm in cmd_args.parameters:
+                key = parm.split('=')[0]
+                value = parm.split('=')[1][:-1]
+                descriptor_string = descriptor_string.replace('{{' + key + '}}', value)
+            descriptor = json.loads(descriptor_string)
             if not descriptor.get('document', None):
                 raise ReportError(f"{_('attribute')} descriptor['document'] {_('expected')}")
 

@@ -5,6 +5,7 @@ import gettext
 import logging
 import builtins
 import traceback
+from datetime import datetime
 from argparse import Namespace
 
 _ = builtins.__dict__.get('_', lambda x: x)
@@ -237,3 +238,40 @@ def error_handler(logger: logging.Logger, error: Exception, message: str, cmd_ar
             print(cmd_args.callback_url)
             # TODO: Send request to callback url with token
         exit(1)
+
+
+def get_database_data(connection_string: str, sql: str, logger: logging.Logger, cmd_args: Namespace) -> list:
+    """
+    Get data from database
+
+    :param connection_string: database connection string
+    :type connection_string: str
+    :param sql: sql request
+    :type sql: str
+    :param logger: logger
+    :type logger: logging.Logger
+    :param cmd_args: commandline arguments
+    :type cmd_args: Namespace
+    :return: sql result
+    :rtype: list
+    """
+    connection = database_connect(connection_string, logger, cmd_args)
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    columns_names = [desc[0] for desc in cursor.description]
+    response = cursor.fetchall()
+    data = list()
+    data.append(columns_names)
+    for row in response:
+        formatted_row = []
+        for col in row:
+            if hasattr(col, 'real') and hasattr(col, 'imag'):
+                formatted_row.append(float(col))
+            elif isinstance(col, datetime):
+                formatted_row.append(str(col))
+            else:
+                formatted_row.append(col)
+        data.append(formatted_row)
+    cursor.close()
+    connection.close()
+    return data

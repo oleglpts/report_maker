@@ -5,6 +5,7 @@ from reportmaker.formats import Document
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.graphics import renderPDF, renderPM
+from reportmaker.utils.helpers import get_database_data
 from reportlab.graphics.charts.lineplots import LinePlot
 from reportlab.graphics.renderPDF import GraphicsFlowable
 from reportlab.graphics.widgets.markers import makeMarker
@@ -24,6 +25,8 @@ pdfmetrics.registerFont(TTFont('DejaVuSerif', 'DejaVuSerif.ttf', 'UTF-8'))
 class PdfDocument(Document):
     """
     PDF document
+
+    See: https://www.reportlab.com/docs/reportlab-userguide.pdf
     """
 
     def _create_document(self):
@@ -85,6 +88,9 @@ class PdfDocument(Document):
         row_split_range = table.get('rowSplitRange', None)
         space_before = table.get('spaceBefore', None)
         space_after = table.get('spaceAfter', None)
+        if isinstance(table.get('data', []), dict):
+            data = get_database_data(cmd_args.database, ''.join(table.get('data').get('sql', '')), logger, cmd_args)
+            table['data'] = data
         return self.set_attributes(
             table,
             Table(
@@ -170,7 +176,8 @@ class PdfDocument(Document):
         """
         return self.set_attributes(image, Image(image.get('data', '')), {}, {})
 
-    def create_spacer(self, spacer: dict) -> Spacer:
+    @staticmethod
+    def create_spacer(spacer: dict) -> Spacer:
         """
         Create spacer
 
@@ -181,7 +188,8 @@ class PdfDocument(Document):
         """
         return Spacer(spacer.get('width', 0), spacer.get('height', 0))
 
-    def create_slice(self, sl: dict) -> dict:
+    @staticmethod
+    def create_slice(sl: dict) -> dict:
         """
         Create mapped slice attributes for pie chart
 
@@ -195,7 +203,8 @@ class PdfDocument(Document):
                 sl[key] = SliceMap.value_map[key][value]
         return sl
 
-    def create_line(self, line: dict) -> dict:
+    @staticmethod
+    def create_line(line: dict) -> dict:
         """
         Create mapped line attributes for line chart
 
@@ -211,7 +220,7 @@ class PdfDocument(Document):
 
     def create_horizontal_line_chart(self, line_chart: dict, render_to_file: bool = False) -> GraphicsFlowable or str:
         """
-        Create horizontal line chart
+        Create horizontal line chart,
 
         :param line_chart: horizontal_line_chart parameters
         :type line_chart: dict

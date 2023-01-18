@@ -168,7 +168,17 @@
           ["VALIGN", [0, 0], [-1, -1], "BOTTOM"],
           ["BOX", [0, 0], [-1, -1], 0.25, "black"]
         ],
-        "data": [[1, 2, 3],[4, 5, 6], [7, 8, 9], [10, 11, 12]]
+        "data": {
+          "sql": [
+            "select code as \"Code\", three as \"ISO\", nominal as \"Name\", rate as \"Rate\" ",
+            "from gateway_currency"
+          ]
+        }
+      },
+      {
+        "type": "Spacer",
+        "width": 50,
+        "height": 10
       },
       {
         "type": "Spacer",
@@ -178,7 +188,12 @@
       {
         "type": "Table",
         "style": "style1",
-        "data": [[1, 2, 3],[4, 5, 6], [7, 8, 9], [10, 11, 12]]
+        "data": {
+          "sql": [
+            "select code as \"Code\", three as \"ISO\", nominal as \"Name\", rate as \"Rate\" ",
+            "from gateway_currency"
+          ]
+        }
       },
       {
         "type": "Paragraph",
