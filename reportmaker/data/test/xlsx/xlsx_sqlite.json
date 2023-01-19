@@ -1,0 +1,37 @@
+{
+  "document": {
+    "format": "xlsx",
+    "sheets": ["Albums", "Artists"],
+    "layout": [
+      {"type":  "sheet"},
+      {
+        "type": "Table",
+        "data": {
+          "sql": [
+            "select * from Album"
+          ]
+        }
+      },
+      {
+        "type": "Image",
+        "coordinates": [1, 4],
+        "source": "/home/oleg/Изображения/Липецкая область Дон.png",
+        "options": {
+          "x_offset": 5,
+          "y_offset": 5,
+          "x_scale": 0.5,
+          "y_scale": 0.5
+        }
+      },
+      {"type":  "sheet"},
+      {
+        "type": "Table",
+        "data": {
+          "sql": [
+            "select * from Artist"
+          ]
+        }
+      }
+    ]
+  }
+}

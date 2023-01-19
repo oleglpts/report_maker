@@ -159,7 +159,6 @@ class Document(ABC):
         """
         raise ReportError(f"Method 'create_table' for class {self.__name__} not implemented")
 
-    @abstractmethod
     def create_image(self, image: dict) -> Any:
         """
         Create image

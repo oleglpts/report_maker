@@ -1,0 +1,27 @@
+{
+  "document": {
+    "format": "csv",
+    "layout": [
+      {
+        "type": "Table",
+        "data": {
+          "sql": [
+            "select * from Album"
+          ]
+        }
+      },
+      {
+        "type": "Table",
+        "data": [[""]]
+      },
+      {
+        "type": "Table",
+        "data": {
+          "sql": [
+            "select * from Artist"
+          ]
+        }
+      }
+    ]
+  }
+}

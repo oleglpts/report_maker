@@ -74,9 +74,9 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # from reportlab.graphics.charts.piecharts import Pie, Drawing
+    # from reportlab.pdf.charts.piecharts import Pie, Drawing
     # from reportlab.lib import colors
-    # from reportlab.graphics import renderPDF, renderPM
+    # from reportlab.pdf import renderPDF, renderPM
     # from reportlab.platypus import Paragraph, Image, SimpleDocTemplate, Table
     #
     # d = Drawing(175, 175)

@@ -1,0 +1,28 @@
+{
+  "document": {
+    "format": "pdf",
+    "styles": {
+      "default": {
+        "type": "Paragraph",
+        "parent_stylesheet": "sample",
+        "parent_name": "BodyText"
+      },
+      "style": {
+        "type": "Table",
+        "parent": "win_style"
+      }
+      },
+    "layout": [
+      {
+        "type": "Table",
+        "style": "style",
+        "data": {
+          "sql": [
+            "select code as \"Code\", three as \"ISO\", nominal as \"Name\", rate as \"Rate\" ",
+            "from gateway_currency"
+          ]
+        }
+      }
+    ]
+  }
+}

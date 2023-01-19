@@ -99,7 +99,7 @@ class XlsxDocument(Document):
 
         # Frame to Excel
 
-        frame = self._data_to_frame(table.get('data', []))
+        frame = self.data_to_frame(table.get('data', []))
         self._current_frame = pd.DataFrame(frame)
         self._max_row, self._max_col = self._current_frame.shape
         self._current_frame.to_excel(self._writer, sheet_name=self._sheets[self._current_sheet], index=False,
@@ -167,7 +167,13 @@ class XlsxDocument(Document):
         :param image: image attributes
         :type image: dict
         """
-        pass
+        source = image.get('source', None)
+        if source:
+            coordinates, options = image.get('coordinates', []), image.get('options', [])
+            if len(coordinates) != 2:
+                logger.warning(f"{_('coordinates format')} '{str(coordinates)}' {_('is invalid')}")
+            row, col = self._normalize_row(coordinates[0]), self._normalize_column(coordinates[1])
+            self._writer.sheets[self._sheets[self._current_sheet]].insert_image(row, col, source, options)
 
     def create_chart(self, common_chart: dict):
         """
@@ -184,7 +190,7 @@ class XlsxDocument(Document):
             common_chart.get('row', 1), common_chart.get('column', 10), chart, common_chart.get('options', None))
 
     @staticmethod
-    def _data_to_frame(data: list) -> dict:
+    def data_to_frame(data: list) -> dict:
         """
         Convert data to frame
 

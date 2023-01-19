@@ -150,6 +150,10 @@ class PdfDocument(Document):
         attrs_dict = {'drawing': {}, 'slices': [], 'style': {}}
         attrs_list = ['drawing', 'slices', 'style']
         self._set_attrs(pie, pie_obj, attrs_dict, attrs_list)
+        if isinstance(pie.get('data', []), dict):
+            data = get_database_data(cmd_args.database, ''.join(pie.get('data').get('sql', '')), logger, cmd_args)
+            pie['labels'] = data[0]
+            pie['data'] = data[1]
         for attr in attrs_list:
             if attr == 'style':
                 for part in self.create_slice(attrs_dict[attr]):
@@ -234,6 +238,7 @@ class PdfDocument(Document):
                       'categoryAxisLabels': []}
         attrs_list = ['drawing', 'categoryAxis', 'valueAxis', 'strokeColor', 'lines', 'lineLabels',
                       'categoryAxisLabels']
+        line_chart = self._set_sql_data(line_chart)
         self._set_attrs(line_chart, chart_obj, attrs_dict, attrs_list)
         for attr in attrs_list:
             if attr == 'lines':
@@ -262,6 +267,9 @@ class PdfDocument(Document):
         plot_obj = LinePlot()
         attrs_dict = {'drawing': {}, 'xValueAxis': {}, 'yValueAxis': {}, 'lines': [], 'lineLabels': []}
         attrs_list = ['drawing', 'xValueAxis', 'yValueAxis', 'strokeColor', 'lines', 'lineLabels']
+        if isinstance(line_plot.get('data', []), dict):
+            data = get_database_data(cmd_args.database, ''.join(line_plot.get('data').get('sql', '')), logger, cmd_args)
+            line_plot['data'] = data[1:]
         self._set_attrs(line_plot, plot_obj, attrs_dict, attrs_list)
         for attr in attrs_list:
             if attr == 'lines':
@@ -293,6 +301,7 @@ class PdfDocument(Document):
         chart_obj = VerticalBarChart()
         attrs_dict = {'drawing': {}, 'categoryAxis': {}, 'valueAxis': {}, 'barLabels': [], 'categoryAxisLabels': []}
         attrs_list = ['drawing', 'categoryAxis', 'valueAxis', 'strokeColor', 'barLabels', 'categoryAxisLabels']
+        bar_chart = self._set_sql_data(bar_chart)
         self._set_attrs(bar_chart, chart_obj, attrs_dict, attrs_list)
         for attr in attrs_list:
             if attr == 'barLabels':
@@ -301,6 +310,15 @@ class PdfDocument(Document):
         return self._get_result(attrs_dict['drawing'], chart_obj, bar_chart, render_to_file)
 
     # protected
+
+    @staticmethod
+    def _set_sql_data(descr: dict) -> dict:
+        if isinstance(descr.get('data', []), dict):
+            data = get_database_data(cmd_args.database, ''.join(descr.get('data').get('sql', '')),
+                                     logger, cmd_args)
+            descr['categoryAxis']['categoryNames'] = data[0]
+            descr['data'] = data[1:]
+        return descr
 
     @staticmethod
     def _set_attrs(chart: dict, chart_obj, attrs_dict: dict, attr_list: list):
