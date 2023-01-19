@@ -1,0 +1,15 @@
+{
+  "document": {
+    "format": "tab",
+    "layout": [
+      {
+        "type": "Table",
+        "data": {
+          "sql": [
+            "select * from Album"
+          ]
+        }
+      }
+    ]
+  }
+}

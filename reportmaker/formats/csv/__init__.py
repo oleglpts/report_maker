@@ -1,4 +1,3 @@
-import os
 import pandas as pd
 from typing import Any
 from reportmaker.formats import Document
@@ -16,7 +15,6 @@ class CsvDocument(Document):
         :type descriptor: dict
         """
         super().__init__(descriptor)
-        self._file_name = os.path.join(cmd_args.output, os.path.basename(cmd_args.input).split('.')[0] + '.csv')
         self._data = []
 
     def create_table(self, table: dict) -> Any:
@@ -46,6 +44,3 @@ class CsvDocument(Document):
                 string.append('')
             self._data[i] = string
         pd.DataFrame(XlsxDocument.data_to_frame(self._data)).to_csv(self._file_name, index=False)
-
-    def create_paragraph_style(self, style: dict, name: str) -> Any:
-        pass

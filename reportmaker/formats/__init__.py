@@ -1,3 +1,4 @@
+import os
 import json
 from typing import Any
 from abc import ABC, abstractmethod
@@ -25,6 +26,8 @@ class Document(ABC):
         :type descriptor: dict
         """
         self._descriptor = descriptor
+        self._file_name = os.path.join(cmd_args.output, os.path.basename(cmd_args.input).split('.')[0] + '.' +
+                                       descriptor.get('document', {}).get('format', 'tab'))
         self._styles = {}
         self._layout = []
 
@@ -33,7 +36,8 @@ class Document(ABC):
         This method generates and save document
         """
         logger.info(_('descriptor is loaded'))
-        self._create_styles()
+        if self.__class__.__name__ in ['PdfDocument', 'XlsxDocument']:
+            self._create_styles()
         self._create_layout()
         self._create_document()
 
@@ -133,7 +137,6 @@ class Document(ABC):
             setattr(result, key_map[key], value)
         return result
 
-    @abstractmethod
     def create_paragraph_style(self, style: dict, name: str) -> Any:
         """
         Create paragraph style

@@ -79,7 +79,7 @@
           ["00", "01", "02", [
             {
               "type": "Image",
-              "data": "/home/oleg/PycharmProjects/report_maker/reportmaker/data/test/graphics/logo.png",
+              "data": "/home/oleg/PycharmProjects/report_maker/reportmaker/data/test/pdf/logo.png",
               "drawWidth": "60",
               "drawHeight": "60"
             },
@@ -97,7 +97,7 @@
             },
             {
               "type": "Image",
-              "data": "/home/oleg/PycharmProjects/report_maker/reportmaker/data/test/graphics/logo.png",
+              "data": "/home/oleg/PycharmProjects/report_maker/reportmaker/data/test/pdf/logo.png",
               "drawWidth": "60",
               "drawHeight": "60"
             }
@@ -126,7 +126,7 @@
           ["00", "01", "02", [
             {
               "type": "Image",
-              "data": "/home/oleg/PycharmProjects/report_maker/reportmaker/data/test/graphics/logo.png",
+              "data": "/home/oleg/PycharmProjects/report_maker/reportmaker/data/test/pdf/logo.png",
               "drawWidth": "60",
               "drawHeight": "60"
             },
@@ -144,7 +144,7 @@
             },
             {
               "type": "Image",
-              "data": "/home/oleg/PycharmProjects/report_maker/reportmaker/data/test/graphics/logo.png",
+              "data": "/home/oleg/PycharmProjects/report_maker/reportmaker/data/test/pdf/logo.png",
               "drawWidth": "60",
               "drawHeight": "60"
             }

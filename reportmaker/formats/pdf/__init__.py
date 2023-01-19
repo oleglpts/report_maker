@@ -1,6 +1,4 @@
-import os
 import uuid
-
 from reportmaker.formats import Document
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -33,8 +31,7 @@ class PdfDocument(Document):
         """
         Create and save document
         """
-        filename = os.path.basename(cmd_args.input).split('.')[0] + '.pdf'
-        SimpleDocTemplate(os.path.join(cmd_args.output, filename)).build(self._layout)
+        SimpleDocTemplate(self._file_name).build(self._layout)
 
     # public
 
